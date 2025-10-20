@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/contact/route": "app/api/contact/route.js",
+  "/health/route": "app/health/route.js",
+  "/locations/page": "app/locations/page.js",
+  "/page": "app/page.js",
+  "/media/page": "app/media/page.js",
+  "/training/page": "app/training/page.js",
+  "/careers/page": "app/careers/page.js"
+}

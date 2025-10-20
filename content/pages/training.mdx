@@ -1,0 +1,44 @@
+---
+title: "Editing & Governance"
+description: "How to edit pages (MDX) and settings, and what content is allowed."
+---
+
+# Content Editing & Governance
+
+## Edit flow
+
+- Pages: edit files in `content/pages/*.mdx`.
+- Blog posts: add files in `content/posts/*.mdx` with front-matter.
+- Practice details: edit `content/data/settings.json` (contacts, hours, social, and locations).
+
+## Multi-location structure
+
+`content/data/settings.json` supports multiple locations under `locations`, e.g.:
+
+```json
+{
+  "schema": { "hasMultipleLocations": true },
+  "locations": [
+    {
+      "id": "pretoria-east",
+      "name": "Pretoria East Clinic",
+      "telephone": "+27 12 345 6789",
+      "address": {
+        "street": "123 Health St",
+        "city": "Pretoria",
+        "province": "Gauteng",
+        "postalCode": "0001",
+        "country": "ZA"
+      }
+    }
+  ]
+}
+```
+
+## Governance (HPCSA/POPIA aligned)
+
+- No testimonials, reviews, or patient stories.
+- No clinical outcome claims or superiority claims.
+- Use plain, factual language about services and qualifications.
+- Exclude patient-identifiable information from all content.
+- For media inquiries, use the Media page boilerplate.

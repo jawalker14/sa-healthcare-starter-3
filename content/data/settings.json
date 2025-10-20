@@ -1,0 +1,86 @@
+{
+  "site": {
+    "name": "Your Practice Name",
+    "url": "https://yourpracticewebsite.com"
+  },
+  "contacts": {
+    "phone": "+27 12 345 6789",
+    "email": "info@healthcarepractice.co.za"
+  },
+  "address": {
+    "street": "123 Health St",
+    "city": "Pretoria",
+    "province": "Gauteng",
+    "postalCode": "0001",
+    "country": "ZA"
+  },
+  "hours": {
+    "monday": "08:00 - 17:00",
+    "tuesday": "08:00 - 17:00",
+    "wednesday": "08:00 - 17:00",
+    "thursday": "08:00 - 17:00",
+    "friday": "08:00 - 17:00",
+    "saturday": "09:00 - 13:00",
+    "sunday": "Closed"
+  },
+  "social": {
+    "facebook": "https://facebook.com/healthcarepractice",
+    "twitter": "https://twitter.com/healthcarepractice",
+    "instagram": "https://instagram.com/healthcarepractice"
+  },
+  "booking": {
+    "enabled": true,
+    "url": "https://healthcarepractice.co.za/book"
+  },
+  "analytics": {
+    "enabled": true,
+    "schema": true
+  },
+  "schema": {
+    "hasMultipleLocations": true
+  },
+  "locations": [
+    {
+      "id": "pretoria-east",
+      "name": "Pretoria East Clinic",
+      "telephone": "+27 12 345 6789",
+      "address": {
+        "street": "123 Health St",
+        "city": "Pretoria",
+        "province": "Gauteng",
+        "postalCode": "0001",
+        "country": "ZA"
+      },
+      "hours": {
+        "monday": "08:00 - 17:00",
+        "tuesday": "08:00 - 17:00",
+        "wednesday": "08:00 - 17:00",
+        "thursday": "08:00 - 17:00",
+        "friday": "08:00 - 17:00",
+        "saturday": "09:00 - 13:00",
+        "sunday": "Closed"
+      }
+    },
+    {
+      "id": "menlyn",
+      "name": "Menlyn Centre",
+      "telephone": "+27 12 987 6543",
+      "address": {
+        "street": "45 Wellness Ave",
+        "city": "Pretoria",
+        "province": "Gauteng",
+        "postalCode": "0063",
+        "country": "ZA"
+      },
+      "hours": {
+        "monday": "08:00 - 17:00",
+        "tuesday": "08:00 - 17:00",
+        "wednesday": "08:00 - 17:00",
+        "thursday": "08:00 - 17:00",
+        "friday": "08:00 - 17:00",
+        "saturday": "Closed",
+        "sunday": "Closed"
+      }
+    }
+  ]
+}
