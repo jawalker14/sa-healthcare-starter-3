@@ -5,10 +5,12 @@ import SkipToContent from './SkipToContent';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex min-h-screen flex-col bg-white text-slate-800">
             <SkipToContent />
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main id="main-content" className="flex-grow">
+                {children}
+            </main>
             <Footer />
         </div>
     );

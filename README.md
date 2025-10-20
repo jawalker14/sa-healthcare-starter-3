@@ -145,3 +145,70 @@ This project adheres to HPCSA and POPIA regulations. Ensure that all content and
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Design system and style guide
+
+This starter includes a minimal, premium UI tailored for healthcare with accessible defaults.
+
+### Theme tokens
+
+- Font: Montserrat (loaded via next/font). Tailwind alias: `font-sans` maps to `var(--font-montserrat)`.
+- Colors: Navy/Slate/White palette
+   - Navy scale: `navy-50` … `navy-950`
+   - Neutral: Tailwind `slate` and `white`
+- Radius: rounded-2xl (16px), rounded-3xl (20px)
+- Shadows:
+   - `shadow-softer`: 0 6px 20px -10px rgba(2, 6, 23, 0.12)
+   - `shadow-soft`: 0 10px 30px -12px rgba(2, 6, 23, 0.18)
+- Spacing additions: `py-18` (4.5rem), `py-22` (5.5rem), `py-30` (7.5rem)
+
+See `tailwind.config.ts` for extend settings.
+
+### Accessibility
+
+- Focus rings use `:focus-visible` with `ring-navy-400` and `ring-offset-white`.
+- A visible “Skip to content” link is provided and only appears on focus.
+- Motion is gentle by default and respects `prefers-reduced-motion`.
+- Contrast aims to meet WCAG AA: navy on white and slate on white both pass; avoid low-contrast combinations like `slate-400` on white for body text.
+
+### Components
+
+Reusable UI in `components/ui`:
+
+- `Hero`: headline section with optional kicker, subtitle, CTA, and media.
+- `Section`: consistent max-width and vertical rhythm for content blocks.
+- `Card`: rounded-2xl, soft shadow, focus ring, subtle hover.
+- `CTA`: accessible buttons/links with `primary | secondary | ghost` variants.
+
+Import from `@/components/ui`:
+
+```tsx
+import { Hero, Section, Card, CTA } from '@/components/ui';
+```
+
+Example:
+
+```tsx
+<Hero
+   kicker="Trusted, Compassionate Care"
+   title="Modern healthcare with a human touch"
+   subtitle="Quality care, clear communication, and accessible services for every patient."
+   cta={<>
+      <CTA>Book an appointment</CTA>
+      <CTA variant="secondary" as="a" href="#services">Explore services</CTA>
+   </>}
+/>
+
+<Section id="services" title="Our Services" description="Evidence-based care across key specialties.">
+   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Card title="General Practice" subtitle="Comprehensive primary care.">Routine check-ups…</Card>
+   </div>
+</Section>
+```
+
+### Usage notes
+
+- Use `text-slate-700` for body copy on white; `text-slate-900` for headings.
+- Use `text-navy-800` for emphasized links or CTAs; ensure background/foreground contrast passes AA.
+- Prefer `shadow-softer` for cards and `shadow-soft` for hero/media or modals.
+- Spacing: prefer `py-18`/`py-22` between sections for balanced rhythm.
