@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Compliance from '../content/partials/compliance.mdx';
+import settings from '../content/data/settings.json';
 
 const Footer: React.FC = () => {
     return (
@@ -23,8 +24,8 @@ const Footer: React.FC = () => {
                     </div>
                     <div>
                         <h5 className="text-base font-semibold tracking-tight text-slate-900">Contact Us</h5>
-                        <p className="mt-4 text-slate-600">Email: info@example.com</p>
-                        <p className="text-slate-600">Phone: +27 12 345 6789</p>
+                        <p className="mt-4 text-slate-600">Email: {settings.contacts.email}</p>
+                        <p className="text-slate-600">Phone: {settings.contacts.phone}</p>
                     </div>
                 </div>
                 <div className="mt-10 rounded-2xl bg-white p-4 shadow-softer">
