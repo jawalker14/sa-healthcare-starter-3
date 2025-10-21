@@ -15,12 +15,14 @@
     "@mdx-js/react": "latest",
     "@next/mdx": "^15.5.6",
     "next": "latest",
+    "nodemailer": "^7.0.9",
     "react": "latest",
     "react-dom": "latest",
     "tailwindcss": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
+    "@types/nodemailer": "^7.0.2",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",

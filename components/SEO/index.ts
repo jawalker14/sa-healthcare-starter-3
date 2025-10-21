@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const generateSEO = ({
+export function generateSEO({
   title,
   description,
   keywords,
@@ -14,19 +14,18 @@ export const generateSEO = ({
   author?: string;
   url?: string;
   image?: string;
-}) => {
-  return (
-    <>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      {author && <meta name="author" content={author} />}
-      {url && <link rel="canonical" href={url} />}
-      {image && <meta property="og:image" content={image} />}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
-      {url && <meta property="og:url" content={url} />}
-    </>
-  );
-};
+}): React.ReactNode {
+  const nodes: React.ReactNode[] = [];
+  nodes.push(React.createElement('title', { key: 'title' }, title));
+  nodes.push(React.createElement('meta', { key: 'desc', name: 'description', content: description }));
+  if (keywords) nodes.push(React.createElement('meta', { key: 'kw', name: 'keywords', content: keywords }));
+  if (author) nodes.push(React.createElement('meta', { key: 'author', name: 'author', content: author }));
+  if (url) nodes.push(React.createElement('link', { key: 'canonical', rel: 'canonical', href: url }));
+  if (image) nodes.push(React.createElement('meta', { key: 'og:image', property: 'og:image', content: image } as any));
+  nodes.push(React.createElement('meta', { key: 'og:title', property: 'og:title', content: title } as any));
+  nodes.push(React.createElement('meta', { key: 'og:description', property: 'og:description', content: description } as any));
+  nodes.push(React.createElement('meta', { key: 'og:type', property: 'og:type', content: 'website' } as any));
+  if (url) nodes.push(React.createElement('meta', { key: 'og:url', property: 'og:url', content: url } as any));
+
+  return React.createElement(React.Fragment, null, ...nodes);
+}
