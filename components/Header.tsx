@@ -1,10 +1,11 @@
 import React from 'react';
+import settings from '@/content/data/settings.json';
 
 const Header: React.FC = () => {
     return (
         <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <a href="/" className="text-xl font-semibold tracking-tight text-navy-800 focus-visible:outline-none">SA Healthcare</a>
+            <a href="/" className="text-xl font-semibold tracking-tight text-navy-800 focus-visible:outline-none">{settings.site.name}</a>
                 <nav aria-label="Primary">
                     <ul className="flex items-center gap-6">
                         <li>
