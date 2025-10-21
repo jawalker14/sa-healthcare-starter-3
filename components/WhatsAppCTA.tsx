@@ -1,8 +1,13 @@
 import React from 'react';
 
 const WhatsAppCTA: React.FC = () => {
-    const whatsappNumber = 'YOUR_WHATSAPP_NUMBER'; // Replace with actual WhatsApp number
+    // Read from environment variables. Prefer client-exposed NEXT_PUBLIC_ var; fall back to server var.
+    const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? process.env.WHATSAPP_NUMBER ?? '';
+    // WhatsApp expects digits only in international format (no +, spaces, or punctuation)
+    const whatsappNumber = rawNumber.replace(/[^\d]/g, '');
     const message = 'Hello, I would like to inquire about your services.';
+
+    if (!whatsappNumber) return null;
 
     return (
         <div className="fixed bottom-4 right-4">

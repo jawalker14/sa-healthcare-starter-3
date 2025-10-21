@@ -206,6 +206,21 @@ Example:
 </Section>
 ```
 
+### WhatsApp CTA configuration
+
+If you use the floating WhatsApp CTA, set your number in international format via environment variable:
+
+- Preferred: NEXT_PUBLIC_WHATSAPP_NUMBER (exposed to the client)
+- Fallback: WHATSAPP_NUMBER (used at build on server)
+
+Example .env.local:
+
+```
+NEXT_PUBLIC_WHATSAPP_NUMBER=15551234567
+```
+
+Only digits are required; plus signs and spaces will be stripped.
+
 ### Usage notes
 
 - Use `text-slate-700` for body copy on white; `text-slate-900` for headings.
