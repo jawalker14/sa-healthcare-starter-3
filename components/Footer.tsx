@@ -18,7 +18,19 @@ const Footer: React.FC = () => {
                                 <Link href="/about" className="text-slate-600 underline-offset-2 hover:text-navy-800 hover:underline">About</Link>
                             </li>
                             <li>
+                                <Link href="/services" className="text-slate-600 underline-offset-2 hover:text-navy-800 hover:underline">Services</Link>
+                            </li>
+                            <li>
+                                <Link href="/locations" className="text-slate-600 underline-offset-2 hover:text-navy-800 hover:underline">Locations</Link>
+                            </li>
+                            <li>
                                 <Link href="/posts" className="text-slate-600 underline-offset-2 hover:text-navy-800 hover:underline">Blog</Link>
+                            </li>
+                            <li>
+                                <Link href="/privacy" className="text-slate-600 underline-offset-2 hover:text-navy-800 hover:underline">Privacy & POPIA</Link>
+                            </li>
+                            <li>
+                                <Link href="/terms" className="text-slate-600 underline-offset-2 hover:text-navy-800 hover:underline">Terms</Link>
                             </li>
                         </ul>
                     </div>

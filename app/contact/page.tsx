@@ -2,6 +2,12 @@
 
 import React, { useState } from 'react';
 import { Section, CTA } from '@/components/ui';
+import Breadcrumbs from '@/components/Breadcrumbs';
+
+export const generateMetadata = () => ({
+  title: 'Contact | Your Practice Name',
+  description: 'Get in touch for general enquiries. Do not submit sensitive medical information via this form.',
+});
 
 type FormState = {
   name: string;
@@ -75,8 +81,9 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <Section title="Contact Us" description="Have a question or need assistance? Send us a message and we’ll get back to you.">
+  <Section title="Contact Us" description="Have a question or need assistance? We’ll respond to your enquiry.">
       <div className="mx-auto max-w-2xl">
+    <Breadcrumbs />
         {status === 'success' && (
           <div className="mb-6 rounded-md border border-green-200 bg-green-50 p-4 text-green-800">
             Thank you. Your message has been sent.

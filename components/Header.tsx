@@ -17,7 +17,7 @@ const Header: React.FC = () => {
         <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <a href="/" className="text-xl font-semibold tracking-tight text-navy-800 focus-visible:outline-none">{settings.site.name}</a>
-                <nav aria-label="Primary">
+            <nav aria-label="Primary">
                     <ul className="flex items-center gap-6">
                         <li>
                               <a className={linkClass('/')} href="/" aria-current={isActive('/') ? 'page' : undefined}>Home</a>
@@ -25,9 +25,21 @@ const Header: React.FC = () => {
                         <li>
                               <a className={linkClass('/about')} href="/about" aria-current={isActive('/about') ? 'page' : undefined}>About</a>
                         </li>
+                <li>
+                    <a className={linkClass('/services')} href="/services" aria-current={isActive('/services') ? 'page' : undefined}>Services</a>
+                </li>
+                <li>
+                    <a className={linkClass('/locations')} href="/locations" aria-current={isActive('/locations') ? 'page' : undefined}>Locations</a>
+                </li>
+                <li>
+                    <a className={linkClass('/practitioners')} href="/practitioners" aria-current={isActive('/practitioners') ? 'page' : undefined}>Practitioners</a>
+                </li>
                         <li>
                               <a className={linkClass('/posts')} href="/posts" aria-current={isActive('/posts') ? 'page' : undefined}>Blog</a>
                         </li>
+                <li>
+                    <a className={linkClass('/contact')} href="/contact" aria-current={isActive('/contact') ? 'page' : undefined}>Contact</a>
+                </li>
                     </ul>
                 </nav>
             </div>
