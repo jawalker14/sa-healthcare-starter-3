@@ -1,5 +1,4 @@
 import React from 'react';
-import MediaMdx from '@/content/pages/media.mdx';
 import { Section } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
@@ -12,8 +11,8 @@ export default function MediaPage() {
   return (
     <Section title="Media & Press" description="Announcements and media mentions.">
       <div className="mx-auto max-w-3xl">
-        <Breadcrumbs />
-        <MediaMdx />
+  <Breadcrumbs />
+  <p className="text-slate-700">Press statements and updates will be published here. For patient privacy, no individual cases are discussed.</p>
       </div>
     </Section>
   );
