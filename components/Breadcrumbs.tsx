@@ -30,6 +30,8 @@ const Crumb: React.FC<{ href: string; children: React.ReactNode; isCurrent?: boo
   );
 };
 
+const titleCase = (s: string) => s.replace(/[-_]/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
+
 const Breadcrumbs: React.FC<{ rootLabel?: string }> = ({ rootLabel = 'Home' }) => {
   const pathname = usePathname() || '/';
   const segments = pathname.split('/').filter(Boolean);
@@ -38,7 +40,11 @@ const Breadcrumbs: React.FC<{ rootLabel?: string }> = ({ rootLabel = 'Home' }) =
     ...segments.map((seg, idx) => {
       const href = '/' + segments.slice(0, idx + 1).join('/');
       const isParam = seg.startsWith('[') && seg.endsWith(']');
-      const label = LABELS[seg] || (isParam ? 'Details' : decodeURIComponent(seg).replace(/[-_]/g, ' '));
+      const parent = segments[idx - 1];
+      const isLast = idx === segments.length - 1;
+      const shouldGeneric = isLast && (parent === 'practitioners' || parent === 'locations' || parent === 'posts');
+      const label = LABELS[seg]
+        || (isParam || shouldGeneric ? 'Details' : titleCase(decodeURIComponent(seg)));
       return { href, label };
     })
   ];
