@@ -86,7 +86,7 @@ export async function POST(request: Request) {
         } else {
             return NextResponse.json({ error: 'Server is not configured: SMTP settings missing' }, { status: 500 });
         }
-    } catch (e) {
+    } catch {
         return NextResponse.json({ error: 'Failed to initialize mail transport' }, { status: 500 });
     }
 
@@ -133,7 +133,7 @@ export async function POST(request: Request) {
         });
 
         return NextResponse.json({ success: true }, { status: 200 });
-    } catch (error) {
+    } catch {
         // Do not leak detailed error information to the client
         return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
     }

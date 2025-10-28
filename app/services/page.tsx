@@ -11,7 +11,7 @@ export const generateMetadata = () => ({
 export default function ServicesHub() {
   const services = [
     { slug: 'general-practice', title: 'General Practice', blurb: 'Comprehensive primary care and routine check-ups.' },
-    { slug: 'womens-health', title: "Women\'s Health", blurb: 'Preventative screenings and respectful, holistic care.' },
+  { slug: 'womens-health', title: "Women's Health", blurb: 'Preventative screenings and respectful, holistic care.' },
     { slug: 'chronic-care', title: 'Chronic Care', blurb: 'Support for long-term conditions like diabetes and hypertension.' },
     { slug: 'preventative-care', title: 'Preventative Care', blurb: 'Vaccinations and health screenings based on clinical guidance.' },
   ];

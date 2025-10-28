@@ -10,7 +10,7 @@ export const generateMetadata = () => ({
 });
 
 const LocationsPage = () => {
-  const { locations = [], site } = settings as any;
+  const { locations = [] } = settings as any;
 
   return (
     <Section title="Our Locations" description="Addresses, contact details, and hours.">
