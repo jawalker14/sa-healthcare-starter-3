@@ -18,13 +18,13 @@ const CTA: React.FC<CTAProps> = ({ children, variant = 'primary', as = 'button',
   const className = `${base} ${variants[variant]}`;
   if (as === 'a' && href) {
     return (
-      <a href={href} className={className} {...(rest as any)}>
+      <a href={href} className={className} {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}>
         {children}
       </a>
     );
   }
   return (
-    <button className={className} {...rest}>
+    <button className={className} {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
       {children}
     </button>
   );

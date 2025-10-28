@@ -1,9 +1,20 @@
-// @ts-nocheck
 import React from 'react';
 import settings from '@/content/data/settings.json';
 
+type Address = { street?: string; city?: string; province?: string; postalCode?: string; country?: string };
+type Location = { id: string; name: string; telephone?: string; address: Address; hours?: Record<string, string> };
+type Settings = {
+    site?: { name?: string; url?: string };
+    contacts?: { phone?: string };
+    social?: Record<string, string>;
+    address?: Address;
+    hours?: Record<string, string>;
+    schema?: { hasMultipleLocations?: boolean };
+    locations?: Location[];
+};
+
 const LocalBusiness: React.FC = () => {
-    const s: any = settings as any;
+        const s = settings as unknown as Settings;
     const hasMulti = s?.schema?.hasMultipleLocations && Array.isArray(s?.locations);
     const org = {
         '@type': 'Organization',
@@ -19,7 +30,7 @@ const LocalBusiness: React.FC = () => {
         sameAs: Object.values(s?.social || {}),
     };
 
-    const toPostal = (addr: any) => ({
+    const toPostal = (addr: Address) => ({
         '@type': 'PostalAddress',
         streetAddress: addr?.street,
         addressLocality: addr?.city,
@@ -28,9 +39,9 @@ const LocalBusiness: React.FC = () => {
         addressCountry: addr?.country || 'ZA',
     });
 
-    let jsonLd: any;
+    let jsonLd: unknown;
     if (hasMulti) {
-        const branches = (s.locations || []).map((loc: any) => ({
+        const branches = (s.locations || []).map((loc) => ({
             '@type': 'LocalBusiness',
             name: loc.name,
             telephone: loc.telephone || s?.contacts?.phone,

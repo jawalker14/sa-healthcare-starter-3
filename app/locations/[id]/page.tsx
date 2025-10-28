@@ -2,19 +2,22 @@ import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { Section } from '@/components/ui';
 import settings from '@/content/data/settings.json';
+type Address = { street?: string; city?: string; province?: string; postalCode?: string; country?: string };
+type Location = { id: string; name: string; telephone?: string; address: Address; hours?: Record<string, string> };
+type Settings = { locations?: Location[] };
 import type { Metadata } from 'next';
 
 type Params = { params: { id: string } };
 
 export function generateMetadata({ params }: Params): Metadata {
-  const loc = (settings as any).locations?.find((l: any) => l.id === params.id);
+  const loc = (settings as unknown as Settings).locations?.find((l) => l.id === params.id);
   const title = loc ? `${loc.name} | Location` : 'Location | Your Practice Name';
   const description = loc ? `Address, hours, and contact details for ${loc.name}.` : 'Find address, hours, and contact details for our locations.';
   return { title, description };
 }
 
 export default function LocationPage({ params }: Params) {
-  const loc = (settings as any).locations?.find((l: any) => l.id === params.id);
+  const loc = (settings as unknown as Settings).locations?.find((l) => l.id === params.id);
   if (!loc) {
     return (
       <Section title="Location not found" description="Please return to Locations for the full list.">

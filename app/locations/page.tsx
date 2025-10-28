@@ -3,6 +3,9 @@ import MapLink from '@/components/MapLink';
 import settings from '@/content/data/settings.json';
 import { Section } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
+type Address = { street?: string; city?: string; province?: string; postalCode?: string; country?: string };
+type Location = { id: string; name: string; telephone?: string; address: Address; hours?: Record<string, string> };
+type Settings = { locations?: Location[] };
 
 export const generateMetadata = () => ({
   title: 'Locations | Your Practice Name',
@@ -10,7 +13,7 @@ export const generateMetadata = () => ({
 });
 
 const LocationsPage = () => {
-  const { locations = [] } = settings as any;
+  const { locations = [] } = settings as unknown as Settings;
 
   return (
     <Section title="Our Locations" description="Addresses, contact details, and hours.">

@@ -1,6 +1,9 @@
 import React from 'react';
 
-const FAQ = ({ faqs }) => {
+type FAQItem = { question: string; answer: string };
+type FAQProps = { faqs: FAQItem[] };
+
+const FAQ: React.FC<FAQProps> = ({ faqs }) => {
   return (
     <div>
       <h2>Frequently Asked Questions</h2>

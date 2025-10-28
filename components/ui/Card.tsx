@@ -10,8 +10,8 @@ type CardProps = {
 };
 
 const Card: React.FC<CardProps> = ({ as = 'div', title, subtitle, children, href, className = '' }) => {
-  const Element: any = href ? 'a' : (as as any);
-  const props: any = href ? { href } : {};
+  const Element = (href ? 'a' : as) as ElementType;
+  const props = (href ? { href } : {}) as Record<string, unknown>;
   return (
     <Element
       {...props}
