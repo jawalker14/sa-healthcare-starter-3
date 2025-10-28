@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeMdx from '@/content/pages/index.mdx';
+import Compliance from '@/components/Compliance';
 import { Hero, Section, Card, CTA } from '@/components/ui';
 
 const HomePage = () => {
@@ -30,7 +30,7 @@ const HomePage = () => {
         </div>
       </Section>
       <div className="mx-auto max-w-6xl px-6 py-18">
-        <HomeMdx />
+        <Compliance />
       </div>
     </>
   );

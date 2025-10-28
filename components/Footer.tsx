@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Compliance from '../content/partials/compliance.mdx';
+import Compliance from './Compliance';
 import settings from '../content/data/settings.json';
 
 const Footer: React.FC = () => {
