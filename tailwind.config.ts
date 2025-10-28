@@ -2,7 +2,7 @@ const config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './content/**/*.{mdx}',
+  './content/**/*.mdx',
   ],
   theme: {
     extend: {

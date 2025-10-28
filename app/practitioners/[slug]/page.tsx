@@ -3,9 +3,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { Section } from '@/components/ui';
 import type { Metadata } from 'next';
 
-type Params = { params: { slug: string } };
-
-export function generateMetadata({ params }: Params): Metadata {
+export function generateMetadata({ params }: any): Metadata {
   const name = decodeURIComponent(params.slug).replace(/-/g, ' ');
   return {
     title: `${name} | Practitioner Profile`,
@@ -13,7 +11,7 @@ export function generateMetadata({ params }: Params): Metadata {
   };
 }
 
-export default function PractitionerProfile({ params }: Params) {
+export default function PractitionerProfile({ params }: any) {
   const name = decodeURIComponent(params.slug).replace(/-/g, ' ');
   return (
     <Section title={name} description="Factual profile details.">

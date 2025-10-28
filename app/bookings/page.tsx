@@ -3,13 +3,15 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { Section, CTA } from '@/components/ui';
 import settings from '@/content/data/settings.json';
 
+type BookingConfig = { booking?: { url?: string } };
+
 export const generateMetadata = () => ({
   title: 'Bookings | Your Practice Name',
   description: 'Book an appointment through our approved third-party system. We do not collect medical information on this site.',
 });
 
 export default function BookingsPage() {
-  const bookingUrl = (settings as any).booking?.url || '#';
+  const bookingUrl = (settings as unknown as BookingConfig).booking?.url || '#';
   return (
     <Section title="Bookings" description="You will be redirected to a secure booking provider.">
       <div className="mx-auto max-w-3xl">

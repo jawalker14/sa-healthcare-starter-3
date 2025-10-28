@@ -54,7 +54,7 @@ const ConsentNotice: React.FC = () => {
     return (
         <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg z-50">
             <p className="text-sm">
-                We use cookies to enhance your experience. By clicking "Accept", you consent to our use of cookies.
+                We use cookies to enhance your experience. By clicking &quot;Accept&quot;, you consent to our use of cookies.
             </p>
             <div className="flex items-center justify-between mt-3 gap-3 flex-wrap">
                 <label className="flex items-center">

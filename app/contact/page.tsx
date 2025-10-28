@@ -1,4 +1,3 @@
-import React from 'react';
 import { Section } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactForm from '@/components/ContactForm';
