@@ -27,9 +27,7 @@ function parseFrontMatter(raw: string): { meta: Record<string, string>; body: st
   return { meta, body };
 }
 
-type Params = { params: { slug: string } };
-
-export function generateMetadata({ params }: Params): Metadata {
+export function generateMetadata({ params }: any): Metadata {
   const filePath = path.join(process.cwd(), 'content', 'posts', `${params.slug}.mdx`);
   try {
     const raw = fs.readFileSync(filePath, 'utf8');
@@ -52,7 +50,7 @@ function escapeHtml(str: string) {
     .replace(/'/g, '&#039;');
 }
 
-export default function BlogPostPage({ params }: Params) {
+export default function BlogPostPage({ params }: any) {
   const filePath = path.join(process.cwd(), 'content', 'posts', `${params.slug}.mdx`);
   let meta: Record<string, string> = {};
   let body = '';

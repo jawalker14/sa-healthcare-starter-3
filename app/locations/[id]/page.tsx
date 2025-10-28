@@ -7,16 +7,14 @@ type Location = { id: string; name: string; telephone?: string; address: Address
 type Settings = { locations?: Location[] };
 import type { Metadata } from 'next';
 
-type Params = { params: { id: string } };
-
-export function generateMetadata({ params }: Params): Metadata {
+export function generateMetadata({ params }: any): Metadata {
   const loc = (settings as unknown as Settings).locations?.find((l) => l.id === params.id);
   const title = loc ? `${loc.name} | Location` : 'Location | Your Practice Name';
   const description = loc ? `Address, hours, and contact details for ${loc.name}.` : 'Find address, hours, and contact details for our locations.';
   return { title, description };
 }
 
-export default function LocationPage({ params }: Params) {
+export default function LocationPage({ params }: any) {
   const loc = (settings as unknown as Settings).locations?.find((l) => l.id === params.id);
   if (!loc) {
     return (
