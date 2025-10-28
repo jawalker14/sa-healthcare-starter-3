@@ -1,15 +1,21 @@
 import React from 'react';
-import Layout from '@/components/Layout';
 import MapLink from '@/components/MapLink';
 import settings from '@/content/data/settings.json';
+import { Section } from '@/components/ui';
+import Breadcrumbs from '@/components/Breadcrumbs';
+
+export const generateMetadata = () => ({
+  title: 'Locations | Your Practice Name',
+  description: 'Addresses, contact details, and hours for our locations.',
+});
 
 const LocationsPage = () => {
   const { locations = [], site } = settings as any;
 
   return (
-    <Layout>
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Our Locations</h1>
+    <Section title="Our Locations" description="Addresses, contact details, and hours.">
+      <div className="mx-auto max-w-6xl">
+        <Breadcrumbs />
         {Array.isArray(locations) && locations.length > 0 ? (
           <ul className="grid gap-6 md:grid-cols-2">
             {locations.map((loc) => {
@@ -42,7 +48,7 @@ const LocationsPage = () => {
           <p>No locations configured yet. Add them in content/data/settings.json.</p>
         )}
       </div>
-    </Layout>
+    </Section>
   );
 };
 

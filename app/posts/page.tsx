@@ -2,7 +2,8 @@ import React from 'react';
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
-import Layout from '@/components/Layout';
+import { Section } from '@/components/ui';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 type PostMeta = {
   slug: string;
@@ -80,13 +81,18 @@ async function loadPosts(): Promise<PostMeta[]> {
   return posts;
 }
 
+export const generateMetadata = () => ({
+  title: 'Blog | Your Practice Name',
+  description: 'Educational articles. No medical advice or testimonials.',
+});
+
 export default async function PostsPage() {
   const posts = await loadPosts();
 
   return (
-    <Layout>
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold tracking-tight mb-6">Blog</h1>
+    <Section title="Blog" description="Educational articles without testimonials or guarantees.">
+      <div className="mx-auto max-w-3xl">
+        <Breadcrumbs />
         {posts.length === 0 ? (
           <p className="text-gray-600">No posts yet. Add MDX files to content/posts.</p>
         ) : (
@@ -122,7 +128,7 @@ export default async function PostsPage() {
                   <div className="shrink-0">
                     <Link
                       href={`/posts/${post.slug}`}
-                      className="text-primary-600 hover:text-primary-700 font-medium"
+                      className="text-navy-700 hover:text-navy-800 font-medium"
                     >
                       Read more →
                     </Link>
@@ -133,6 +139,6 @@ export default async function PostsPage() {
           </ul>
         )}
       </div>
-    </Layout>
+    </Section>
   );
 }
