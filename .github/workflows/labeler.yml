@@ -1,0 +1,21 @@
+name: Auto label PRs
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Add labels based on branch
+        uses: actions-ecosystem/action-add-labels@v1
+        if: startsWith(github.head_ref, 'feat/scaffold-pages')
+        with:
+          labels: |
+            enhancement
+            compliance
+            app-router
+            ready-for-review
